@@ -11,7 +11,39 @@
 		border: 1px solid #dadada;
 		max-height: 300px;
 		max-width: 700px;
+		display:block;
+		margin: 0 auto;
 	}
+	
+	.container {
+  	padding: 0 20px;
+  	width: 700px;
+  }
+  
+  footer {
+    display: none;
+  }
+  
+  #header-buttons{
+    display: none;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .well {
+    text-align: center;
+    width: 250px;
+    display: block;
+     margin: 0 auto;
+  }
+  
+  .well h6 {
+    margin-bottom: 5px;
+  }
+  
+  
 </style>
 
 <!-- Handle AJAX requests here -->
@@ -43,17 +75,6 @@
 						</div>
 					</form>
 				</li>
-				
-				<!--
-				<li class="comment-list-comment">
-					<form the_link="{{idea.permalink}}/comments" method="post" charset="utf-8">
-						<div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
-						<div class="checkarea"><input class="checkbox" type="checkbox" id="lightbox-ajax-comment-submit" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
-						<br/>
-						<div class="btn btn-primary" id="lightbox-ajax-comment-submit">Submit</div>
-					</form>
-				</li>
-				-->
 			</ul>
 		</div>
 	{% endif %}
@@ -61,14 +82,14 @@
 	
 {% else %}
 <!-- No AJAX requests here continue as normal -->
-	<h1>Thanks!</h1><br/>
 	<img class="show-image" src="{{idea.custom1}}">
-
-	<!--
-	<form action="{{idea.permalink}}/comments" method="post" charset="utf-8">
-		<div class="input"><textarea id="comment_body" name="comment[body]"></textarea></div>
-		<div class="checkarea"><input class="checkbox" type="checkbox" id="comment_should_post_to_social" name="comment[should_post_to_social]" value="1" checked="checked" /> share this comment to {{current_user.provider}}?</div>
-		<input type="submit" name="submit" value="post comment" class="btn primary"/></div>
-	</form>
-	-->
+	<h2 class="title">{{idea.title}}</h2>
+	<br/>
+	<div class="well">
+    <h6>Share Permalink</h6>
+    <input type="text" value="{{ space | link }}{{idea.permalink}}">
+	</div>
+	<br/>
+	
+	<script 
 {% endif %}

@@ -9,9 +9,29 @@
 	background-color: #e1e1e1;
 	padding: 5px;
 	text-align: center;
-	margin-left: 190px;
+	top: 148px;
+	left: 210px;
+	position: fixed;
+	box-shadow: 0 0 10px #000;
+	z-index: 999;
 }
 
 #formbar #input-title {
 	margin-top: 6px;
+}
+
+.mainlist {
+  margin-top: 80px;
+}
+
+footer {
+  display: none;
+}
+
+#header-buttons{
+  display: none;
+}
+
+.main-list-item {
+  padding-bottom: 10px;
 }
