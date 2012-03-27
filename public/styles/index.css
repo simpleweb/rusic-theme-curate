@@ -7,6 +7,7 @@
 }
 
 #main-list-item-lightbox img{
+  min-width: 510px;
 	max-width: 800px;
 	max-height: 800px;
 	border: 1px solid #d8d8d8;
@@ -50,4 +51,8 @@
 
 .comment-list .avatar {
 	margin-right: 10px;
+}
+
+.modal-header {
+  margin-bottom: 10px;
 }

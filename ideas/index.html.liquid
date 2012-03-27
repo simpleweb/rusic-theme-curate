@@ -12,9 +12,10 @@
 <ul class="unstyled mainlist last"></ul>
 
 <div class="lightbox" id="main-list-item-lightbox">
+  <div class="modal-header"><a href="#" class="close" data-dismiss="modal">×</a><h3>Modal header</h3></div>
 	<img src=""/>
 	<h4></h4>
-	<div></div>
+	<div class="main"></div>
 </div>
 
 <script type="text/javascript">
@@ -81,13 +82,12 @@
 		var lightboxPermalink = $(this).closest('.main-list-item').find('a').attr('href');
 		
 		$('#main-list-item-lightbox').find('img').attr('src', lightboxImgURL);
-		$('#main-list-item-lightbox').find('h4').html(lightboxTitle);
+		$('#main-list-item-lightbox').find('.modal-header h3').html(lightboxTitle);
 		
 		$.get(lightboxPermalink+'?ajax=comments', function(data) {
-			$('#main-list-item-lightbox').find('div').html(data);
+			$('#main-list-item-lightbox').find('.main').html(data);
 		});
 		
-		$('#main-list-item-lightbox').find('div').html(lightboxTitle);
 		$('#main-list-item-lightbox').lightbox_me();
 	});
 	

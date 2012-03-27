@@ -1,8 +1,5 @@
 <style type="text/css">
-	#ajaxContent .container {
-		padding: 0 20px;
-		width: 700px;
-	}
+	
 	
 	.show-image {
 		padding: 10px;
@@ -15,19 +12,6 @@
 		margin: 0 auto;
 	}
 	
-	.container {
-  	padding: 0 20px;
-  	width: 700px;
-  }
-  
-  footer {
-    display: none;
-  }
-  
-  #header-buttons{
-    display: none;
-  }
-  
   .title {
     text-align: center;
   }
@@ -83,7 +67,26 @@
 {% elsif comment %}
 	
 {% else %}
-<!-- No AJAX requests here continue as normal -->
+  <style type="text/css">
+    #ajaxContent .container {
+    	padding: 0 20px;
+    	width: 700px;
+    }
+    .container {
+    	padding: 0 20px;
+    	width: 700px;
+    }
+  
+    footer {
+      display: none;
+    }
+    
+    #header-buttons{
+      display: none;
+    }
+  
+  </style>
+  <!-- No AJAX requests here continue as normal -->
 	<img class="show-image" src="{{idea.custom1}}">
 	<h2 class="title">{{idea.title}}</h2>
 	<br/>
