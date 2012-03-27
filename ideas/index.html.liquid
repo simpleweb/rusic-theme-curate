@@ -92,21 +92,27 @@
 	});
 	
 	// Like Button AJAX
-	$('.likebtn').click(function(e){
-		
-		e.preventDefault();
-		
-		var button = this;
-		
-		$.post($(this).attr('like_link'), function(data) {
-			if(data.valid){
-				$(button).attr('src', '{{asset_url}}/img/icon-heart-red.png').addClass('liked');
-				$(button).next('.like-val').html(data.likes_count);
-			}else{
-				alert(data.message);
-			}
-		}, 'json');
-	});
+	{% if current_user %}
+  	$('.likebtn').click(function(e){
+  		
+  		e.preventDefault();
+  		
+  		var button = this;
+  		
+  		$.post($(this).attr('like_link'), function(data) {
+  			if(data.valid){
+  				$(button).attr('src', '{{asset_url}}/img/icon-heart-red.png').addClass('liked');
+  				$(button).next('.like-val').html(data.likes_count);
+  			}else{
+  				alert(data.message);
+  			}
+  		}, 'json');
+  	});
+  {% else %}
+    $('.likebtn').click(function(e){
+      alert('Uh-oh, looks like your not logged in.')
+    });
+  {% endif %}
 	
 </script>
 
