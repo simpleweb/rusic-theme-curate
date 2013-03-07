@@ -1,5 +1,5 @@
 {% if env == "development" %}
-	{% assign asset_url="http://127.0.0.1:8081" %}
+  {% assign asset_url="http://127.0.0.1:8080/rusic-theme-curate/public" %}
 {% else %}
 	{% assign asset_url="http://rusic-curate-theme.s3.amazonaws.com" %}
 {% endif %}
@@ -22,7 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="{{asset_url}}/styles/subdomain.css">
 		
 		<!-- Scripts -->
-		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="{{asset_url}}/js/jquery.lightbox_me.js"></script>
 		<script type="text/javascript" src="{{asset_url}}/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="{{asset_url}}/js/jquery.sharrre-1.2.0.min.js"></script>
@@ -87,8 +87,23 @@
 				</div>
 			</div>
 		</footer>
+
+		{% if params.login == 'success' and current_participant and current_participant.missing_email_address? %}
+      <div class="modal-cover" id="emailCaptureModalCover"></div>
+      <div class="modal" id="emailCaptureModal">
+        <h3>Please enter your email address:</h3>
+        <br/>
+        <form action="/participant" method="post">
+          <input type="text" name="participant[email_address]" placeholder="you@example.com"/>
+          <input type="submit" value="Submit" class="btn"/>
+        </form>
+      </div>
+    {% endif %}
+
 		<script type="text/javascript">
-			 $("[rel=tooltip]").tooltip({placement: 'bottom'});
-		</script>		
+			$(document).ready(function(){
+				$("[rel=tooltip]").tooltip({placement: 'bottom'});
+			});
+		</script>
 	</body>
 </html>
